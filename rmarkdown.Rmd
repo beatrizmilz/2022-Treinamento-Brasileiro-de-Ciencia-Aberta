@@ -21,12 +21,18 @@ O principal tipo de arquivo utilizado em programação em R base [@R-base] é o 
 
 Essa abordagem, apesar de ser muito utilizada, apresenta um ponto negativo: ao desvincular o arquivo final do código que gera as análises, a possibilidade de erros cometidos ao realizar a atualização manual dos arquivos aumenta. 
 
-Uma outra abordagem de realização de análises e escrita científica é a utilização do pacote R Markdown [@R-rmarkdown], que possibilita unir códigos e seus resultados, textos, tabelas, referências, entre outros. O  R Markdown também possibilita gerar diversos tipos de arquivos, como PDF, HTML, Word e Powerpoint. A vasta comunidade de R também desenvolveu diversos pacotes que possibilitam utilizar o R Markdown para gerar documentos como: livros [@bookdown2016; @R-bookdown], apresentações em HTML [@R-xaringan], blogs científicos [@blogdown2017; @R-blogdown; @R-distill], textos científicos [@R-pagedown; @R-rticles], entre outros.
+Uma outra abordagem de realização de análises e escrita científica é a utilização do pacote R Markdown [@R-rmarkdown], que possibilita unir códigos e seus resultados, textos, tabelas, referências, entre outros. O  R Markdown também possibilita gerar diversos tipos de arquivos, como PDF, HTML, Word e Powerpoint. A vasta comunidade de R também desenvolveu diversos pacotes que possibilitam utilizar o R Markdown para gerar documentos como: livros [@bookdown2016; @R-bookdown], apresentações em HTML [@R-xaringan], blogs científicos [@blogdown2017; @R-blogdown; @R-distill], textos científicos [@R-pagedown; @R-rticles], entre outros. Para que seja possível utilizar o R Markdown, primeiramente é necessário instalar o pacote, executando o seguinte código:
+
+```{r eval=FALSE, include=TRUE}
+install.packages("rmarkdown")
+```
+
+O R Markdown é um pacote criado e mantido pela RStudio, portanto, é recomendado estudar o uso do pacote utilizando a interface de desenvolvimento integrada (IDE) RStudio [@rstudio]^[O RStudio pode ser obtido gratuitamente em: <https://www.rstudio.com/products/rstudio/download/#download>.]. 
 
 O arquivo disponibilizado pelo pacote R Markdown possui a extensão `.Rmd`.
 Este arquivo apresenta a seguinte estrutura, ilustrada pela Figura \@ref(fig:ide-rstudio-rmd):
 
-```{r ide-rstudio-rmd, echo=FALSE, fig.align="center", fig.cap="Captura de tela da IDE RStudio, mostrando um novo arquivo R Markdown",  out.width="70%"}
+```{r ide-rstudio-rmd, echo=FALSE, fig.align="center", fig.cap="Captura de tela da IDE RStudio, mostrando um novo arquivo R Markdown",  out.width="60%"}
 knitr::include_graphics("img/rmarkdown.png")
 ```
 
@@ -48,7 +54,7 @@ knitr::include_graphics("img/rmarkdown.png")
 
 -   **Textos marcados com Markdown** - Textos marcados com a linguagem de marcação Markdown podem ser adicionados ao longo do relatório, fora das demarcações do YAML e dos Chunks. A funcionalidade recente do RStudio chamada "Visual editing mode" possibilita visualizar o arquivo, apresentando botões que auxiliam a criar as marcações em markdown (Figura \@ref(fig:visual-editor) ).
 
-```{r visual-editor, echo=FALSE, fig.align="center", fig.cap="Captura de tela da IDE RStudio, mostrando o Visual editing mode",  out.width="70%"}
+```{r visual-editor, echo=FALSE, fig.align="center", fig.cap="Captura de tela da IDE RStudio, mostrando o Visual editing mode",  out.width="60%"}
 knitr::include_graphics("img/visual-editor.png")
 ```
 
