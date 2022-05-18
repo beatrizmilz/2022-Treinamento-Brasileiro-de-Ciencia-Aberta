@@ -1,0 +1,129 @@
+---
+title: "Documentos dinâmicos em R Markdown"
+author: "Beatriz Milz"
+date: 'Maio de 2022'
+subtitle: "Treinamento Brasileiro de Ciência Aberta, Virtual 2022"
+format: 
+  revealjs:
+    incremental: false
+    footer: "Slides por [Beatriz Milz](https://beatrizmilz.com), feitos com [Quarto](https://quarto.org/docs/presentations/revealjs/index.html). Códigos e materiais disponíveis no [GitHub](https://github.com/beatrizmilz/2022-Treinamento-Brasileiro-de-Ciencia-Aberta). Licença de uso: [CC-BY-SA](https://beatrizmilz.com/license/)."
+    theme: ["custom.scss"]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+editor: visual
+lang: pt
+---
+
+## Ministrante
+
+### Beatriz Milz
+
+
+<a href='mailto:milz.bea@gmail.com'><i class="far fa-envelope"></i></a> <a href='https://twitter.com/BeaMilz'><i class="fab fa-twitter"></i> <a href='https://github.com/beatrizmilz'><i class="fab fa-github"></i></a> <a href='https://beatrizmilz.github.io/resume/index.pdf'><i class="ai ai-cv"></i></a>
+
+
+-   Doutoranda em Ciência Ambiental (PROCAM/IEE/USP)
+
+-   Co-organizadora da [R-Ladies São Paulo](https://www.meetup.com/pt-BR/R-Ladies-Sao-Paulo) `r emo::ji("purple_heart")`
+
+-   [Instrutora de tidyverse certificada pela RStudio](https://education.rstudio.com/trainers/people/milz+beatriz/).
+
+-   Professora na [Curso-R](https://curso-r.com/).
+
+Mais em: <https://beatrizmilz.com/>
+
+## O que é o R?
+
+- Linguagem de programação de código aberto.
+
+- É gratuita.
+
+-   Muito usada por pessoas da área estatística, em pesquisas científicas, para analisar dados, etc.
+
+```{r, out.width="20%", fig.align='right'}
+knitr::include_graphics("img/r_logo.png")
+```
+
+
+## O que é o RStudio Cloud?
+
+-   O software RStudio (conhecido também como IDE: *integrated development environment*)  é um ambiente de desenvolvimento que utilizamos para editar e executar os códigos em R.
+
+- O [RStudio Cloud](https://rstudio.cloud) possibilita usar uma versão similar ao software RStudio diretamente do navegador (sem que seja necessário instalar nada).
+
+```{r, out.width="65%"}
+knitr::include_graphics("img/rstudio.png")
+```
+
+## Pré-requisitos
+
+### Nesta atividade:
+
+-   [RStudio Cloud](https://rstudio.cloud)
+
+### Para usar no dia-a-dia:
+
+-   `R` e `RStudio` instalados no seu computador:
+
+-   Links para instalação:
+
+    -   [R](https://cran.r-project.org/bin/windows/base/)
+    -   [RStudio](https://rstudio.com/products/rstudio/download/)
+
+## Ciclo da ciência de dados
+
+![](img/environmental-data-science-r4ds-general.png){fig-align="center" width="60%"}
+
+::: footer
+Fonte: Conceito do ciclo de ciência de dados apresentado por [Hadley Wickham no livro R for Data Science](https://r4ds.had.co.nz/introduction.html), ilustração por [Allison Horst](https://github.com/allisonhorst).
+:::
+
+
+## Pacote R Markdown
+
+-   Criado e mantido pela companhia [RStudio](https://rstudio.com/) (a mesma que criou e mantém o software RStudio)
+
+-   Princípio: arquivos onde escrevemos textos e marcamos com `markdown`, mas também podemos adicionar códigos que são executados.
+
+-   Extensão `.Rmd`
+
+-   Possibilita a utilização de códigos `R`, `Python`, `Markdown`, `HTML`, `CSS`, `SQL`, e outros em um único arquivo.
+
+-   A reprodutibilidade é algo importante para o R Markdown.
+
+## Pacote R Markdown
+
+Existem outros pacotes que integram bem com R Markdown para gerar diversos produtos de análise de dados diferentes, com arquivos .Rmd.
+
+![](https://beatrizmilz.github.io/slidesR/img/rmarkdown/markdown.png){fig-align="center" width="30%"}
+
+::: footer
+Fonte: <a href='https://rmarkdown.rstudio.com'>Pacote `rmarkdown`</a>
+:::
+
+
+## Vamos começar? {.middle .center}
+
+### <https://rstudio.cloud/>
+
+## Outras referências interessantes:
+
+Em Português:
+
+-   [Relatórios reprodutíveis com R - Curso de Verão IME-USP 2022](https://beatrizmilz.github.io/2022-curso-de-verao-ime-usp-relatorios/slides/#1)
+
+-   [Escrevendo manuscritos acadêmicos usando R Markdown](https://www.youtube.com/watch?v=Cxrc87AH2WM&list=PL9-E3cL2KgKmhrk9rba786DTMvnPh9fJD&index=1)
+
+-   [Ciência de Dados em R - Capítulo 9 Relatórios](https://livro.curso-r.com/9-relatorios.html)
+
+Em Inglês:
+
+-   [Tom Mock \| A Gentle Introduction to Tidy Statistics in R \| RStudio (2019)](https://youtu.be/wfMAaXWHGog)
+
+-   [Tom Mock \| R Markdown Advanced Tips to Become a Better Data Scientist \| RStudio](https://youtu.be/WkF7nqEYF1E)
+
+-   [Introduction to bioinformatics - Chapter 8 Reproducible research - Laurent Gatto](https://uclouvain-cbio.github.io/WSBIM1207/sec-rr.html)
+
+<script src="https://kit.fontawesome.com/1bb720cc6f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
