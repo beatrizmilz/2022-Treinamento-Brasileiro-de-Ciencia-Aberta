@@ -60,25 +60,28 @@ dados_sigbm <- dados_brutos_sigbm |>
     )
   ) 
 ```
+
 # Objetivos
 
 Este relatório tem como objetivo apresentar funcionalidades do R Markdown, utilizando dados públicos sobre barragens de mineração no Brasil.
 
 # Materiais e métodos
 
+A base de dados disponibilizada pelo Sistema de Gestão de Segurança de Barragem de Mineração (SIGBM) apresenta dados referentes à Barragens de Mineração no território brasileiro.
+Os dados são disponibilizados no site da Agência Nacional de Mineração[^1].
 
-A base de dados disponibilizada pelo Sistema de Gestão de Segurança de Barragem de Mineração (SIGBM) apresenta dados referentes à Barragens de Mineração no território brasileiro. Os dados são disponibilizados no site da Agência Nacional de Mineração^[SIGBM disponível em: https://app.anm.gov.br/SIGBM/Publico/ClassificacaoNacionalDaBarragem].
+[^1]: SIGBM disponível em: <https://app.anm.gov.br/SIGBM/Publico/ClassificacaoNacionalDaBarragem>
 
 ```{r}
 ufs_no_sigbm <- dados_sigbm |> count(uf) |> nrow()
 ```
 
-
-Este relatório foi elaborado utilizando os Softwares R [@R-base] e RStudio [@rstudio], e os pacotes: ggplot2 [@ggplot22016; @R-ggplot2], forcats [@R-forcats], janitor [@R-janitor], readxl [@R-readxl], dplyr [@R-dplyr] e  stringr [@R-stringr].
+Este relatório foi elaborado utilizando os Softwares R [@R-base] e RStudio [@rstudio], e os pacotes: ggplot2 [@ggplot22016; @R-ggplot2], forcats [@R-forcats], janitor [@R-janitor], readxl [@R-readxl], dplyr [@R-dplyr] e stringr [@R-stringr].
 
 # Barragens de mineração no Brasil
 
-A versão utilizada para elaborar este documento foi atualizada em `r data_atualizacao_sigbm`, apresentando informações sobre `r nrow(dados_sigbm)` barragens, em `r ufs_no_sigbm` estados brasileiros. Os cinco estados brasileiros que apresentam o maior número de barragens de mineração cadastradas no SIGBM estão apresentados na tabela  \@ref(tab:tab-estados).
+A versão utilizada para elaborar este documento foi atualizada em `r data_atualizacao_sigbm`, apresentando informações sobre `r nrow(dados_sigbm)` barragens, em `r ufs_no_sigbm` estados brasileiros.
+Os cinco estados brasileiros que apresentam o maior número de barragens de mineração cadastradas no SIGBM estão apresentados na tabela \@ref(tab:tab-estados).
 
 ```{r tab-estados}
 dados_sigbm |> 
@@ -92,7 +95,6 @@ dados_sigbm |>
   ) 
 ```
 
-
 # Barragens de mineração em `r params$uf`
 
 Neste documento, vamos explorar os dados das barragens de mineração cadastradas em `r params$uf`.
@@ -101,7 +103,6 @@ Neste documento, vamos explorar os dados das barragens de mineração cadastrada
 dados_sigbm_filtrados <- dados_sigbm |> 
   filter(uf == params$uf)
 ```
-
 
 ```{r, out.width="100%", dpi = 300}
 dados_sigbm_filtrados |>
@@ -112,9 +113,6 @@ dados_sigbm_filtrados |>
   theme_bw() +
   labs(x = "Dano potencial associado (DPA)", y = "Quantidade de barragens")
 ```
-
-
-
 
 ```{r include=FALSE}
 # Podemos gerar um `.bib` com as referências de pacotes utilizados usando a função `knitr::write_bib()`
