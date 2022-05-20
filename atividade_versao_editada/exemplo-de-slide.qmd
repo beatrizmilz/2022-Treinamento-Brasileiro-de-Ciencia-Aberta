@@ -1,0 +1,140 @@
+---
+title: "Barragens de mineração no Brasil e no estado de `r params$uf`"
+subtitle: "Documentos dinâmicos em R Markdown (Exemplo de documento R Markdown)"
+author: "Beatriz Milz - Treinamento Brasileiro de Ciência Aberta"
+date: 'Maio de 2022'
+format: revealjs
+editor: visual
+params: 
+  uf: "MT" 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# Carregar pacotes:
+library(readxl)
+library(dplyr)
+library(janitor)
+library(stringr)
+library(forcats)
+library(ggplot2)
+library(readr)
+```
+
+```{r include=FALSE}
+# data de atualização -----
+data_atualizacao_sigbm <- read_xlsx("dados/sigbm.xlsx",
+                                    col_names = FALSE,
+                                    n_max = 1) |>
+  pull() |>
+  str_extract(":.*-") |>
+  str_remove(":") |>
+  str_remove("-") |>
+  str_trim()
+
+# importação ----
+dados_brutos_sigbm <- read_xlsx("dados/sigbm.xlsx", skip = 3)
+# organização --------
+dados_sigbm <- dados_brutos_sigbm |> 
+  # limpar nomes das colunas
+  clean_names() |> # pacote janitor
+    mutate(
+    dano_potencial_associado = if_else(
+      dano_potencial_associado == "N/A",
+      "Não se aplica",
+      dano_potencial_associado
+    ),
+    dano_potencial_associado = factor(
+      dano_potencial_associado,
+      levels = c("Não se aplica", "Baixo", "Médio", "Alto")
+    )
+  ) 
+
+# write_rds(dados_sigbm, "dados_output/dados_sigbm_tratados.rds")
+# sigbm_tratado <- read_rds("dados_output/dados_sigbm_tratados.rds")
+```
+
+# Objetivos
+
+Este relatório tem como objetivo apresentar funcionalidades do R Markdown, utilizando dados públicos sobre barragens de mineração no Brasil.
+
+# Materiais e métodos
+
+A base de dados disponibilizada pelo Sistema de Gestão de Segurança de Barragem de Mineração (SIGBM) apresenta dados referentes à Barragens de Mineração no território brasileiro. Os dados são disponibilizados no site da Agência Nacional de Mineração[^1].
+
+[^1]: SIGBM disponível em: <https://app.anm.gov.br/SIGBM/Publico/ClassificacaoNacionalDaBarragem>
+
+# Materiais e métodos
+
+Este relatório foi elaborado utilizando os Softwares R [@R-base] e RStudio [@rstudio], e os pacotes: [ggplot2](https://ggplot2-book.org/) , forcats [@R-forcats], janitor [@R-janitor], readxl [@R-readxl], dplyr [@R-dplyr] e stringr [@R-stringr].
+
+# Barragens de mineração no Brasil
+
+```{r}
+ufs_no_sigbm <- dados_sigbm |> count(uf) |> nrow()
+```
+
+A versão utilizada para elaborar este documento foi atualizada em `r data_atualizacao_sigbm`, apresentando informações sobre `r nrow(dados_sigbm)` barragens, em `r ufs_no_sigbm` estados brasileiros. Os cinco estados brasileiros que apresentam o maior número de barragens de mineração cadastradas no SIGBM estão apresentados na tabela \@ref(tab:tab-estados).
+
+# Barragens de mineração no Brasil
+
+```{r tab-estados}
+dados_sigbm |> 
+  count(uf, sort = TRUE) |> 
+  slice(1:5) |> 
+  rename(`Sigla do Estado` = uf, `Quantidade de barragens cadastradas` = n) |> 
+  flextable::flextable() |> 
+    flextable::autofit() |> 
+  flextable::set_caption(
+    "Cinco estados brasileiros com as maiores quantidade de barragens de mineração cadastradas no SIGBM."
+  ) 
+```
+
+
+
+# Barragens de mineração em `r params$uf`
+
+```{r}
+dados_sigbm_filtrados <- dados_sigbm |> 
+  filter(uf == params$uf)
+```
+
+Neste documento, vamos explorar os dados das barragens de mineração cadastradas em `r params$uf`. Na data em que os dados foram coletados (`r data_atualizacao_sigbm`), o SIGBM apresentava `r nrow(dados_sigbm_filtrados)` barragens de mineração cadastradas em `r params$uf`. Na figura \@ref(fig:plot-dpa), é apresentado a quantidade de barragens por categoria de DPA - Dano potencial associado.
+
+# Barragens de mineração em `r params$uf`
+
+
+```{r plot-dpa, out.width="100%", dpi = 300}
+dados_sigbm_filtrados |>
+  count(dano_potencial_associado) |>
+  ggplot() +
+  aes(x = dano_potencial_associado, y = n) +
+  geom_col(fill = "lightblue") +
+  theme_bw() +
+  labs(x = "Dano potencial associado (DPA)", y = "Quantidade de barragens")
+```
+
+
+# Exemplo de referencia
+
+[Villar & Hirata (2022)](https://doi.org/10.1590/1809-4422asoc20210037r1vu2022L1AO) 
+
+Segundo @villar2022 .....
+
+Autores dissera que .... [@villar2022; @R-forcats]
+
+A Pilar [-@villar2022] disse que ...
+
+```{r include=FALSE}
+# Podemos gerar um `.bib` com as referências de pacotes utilizados usando a função `knitr::write_bib()`
+knitr::write_bib(file = 'referencias/packages.bib')
+```
+
+# Referências
