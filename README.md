@@ -16,14 +16,17 @@
 
 ## Links citados na atividade:
 
-- https://beatrizmilz.github.io/2022-curso-de-verao-ime-usp-relatorios/slides/
+- Material do curso de Relatórios oferecido no curso de verão do IME USP: https://beatrizmilz.github.io/2022-curso-de-verao-ime-usp-relatorios/slides/
 
-- https://r4ds.had.co.nz/index.html
+- Livro R for Data Science: https://r4ds.had.co.nz/index.html
 
-- https://github.com/citation-style-language/styles
+- Arquivos CSL - formatar referências:  https://github.com/citation-style-language/styles
 
-- https://beatrizmilz.com/blog/2020-07-27-criando-mapas-com-os-pacotes-tidyverse-e-geobr/
+- Post com mapas: https://beatrizmilz.com/blog/2020-07-27-criando-mapas-com-os-pacotes-tidyverse-e-geobr/
 
-- https://github.com/beatrizmilz/2021-SICSS/tree/master/notes
+- Anotações do SICSS 2021: https://github.com/beatrizmilz/2021-SICSS/tree/master/notes
 
-- https://beatrizmilz.com/blog/2021-03-29-desvendando-erros/
+- Post sobre erros comuns: https://beatrizmilz.com/blog/2021-03-29-desvendando-erros/
+
+- Evento: Seminário de Estatística com R: http://ser.uff.br/programacao/
+
