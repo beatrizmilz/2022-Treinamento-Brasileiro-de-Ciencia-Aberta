@@ -6,11 +6,14 @@ date: 'Maio de 2022'
 output: 
   bookdown::word_document2:
     reference_docx: template/word_template.docx
-    number_sections: false
+  bookdown::html_document2: default  
+  bookdown::pdf_document2: default  
 bibliography: [referencias/packages.bib, referencias/referencias.bib]
 #csl: template/abnt.csl   
 params: 
-  uf: "SP"
+  uf: "MG"
+header-includes:
+   - \usepackage[brazil]{babel}  
 ---
 
 ```{r setup, include=FALSE}
@@ -97,14 +100,15 @@ dados_sigbm |>
 
 # Barragens de mineração em `r params$uf`
 
-Neste documento, vamos explorar os dados das barragens de mineração cadastradas em `r params$uf`.
-
 ```{r}
 dados_sigbm_filtrados <- dados_sigbm |> 
   filter(uf == params$uf)
 ```
 
-```{r, out.width="100%", dpi = 300}
+Neste documento, vamos explorar os dados das barragens de mineração cadastradas em `r params$uf`. Na data em que os dados foram coletados (`r data_atualizacao_sigbm`), o SIGBM apresentava `r nrow(dados_sigbm_filtrados)` barragens de mineração cadastradas em `r params$uf`. Na figura \@ref(fig:plot-dpa), é apresentado a quantidade de barragens por categoria de DPA - Dano potencial associado.
+
+
+```{r plot-dpa, out.width="100%", dpi = 300}
 dados_sigbm_filtrados |>
   count(dano_potencial_associado) |>
   ggplot() +
@@ -114,9 +118,9 @@ dados_sigbm_filtrados |>
   labs(x = "Dano potencial associado (DPA)", y = "Quantidade de barragens")
 ```
 
+
 ```{r include=FALSE}
 # Podemos gerar um `.bib` com as referências de pacotes utilizados usando a função `knitr::write_bib()`
-pacotes <- c("tidyverse")
 knitr::write_bib(file = 'referencias/packages.bib')
 ```
 
