@@ -1,0 +1,43 @@
+# Documentos dinâmicos em R Markdown
+
+- Treinamento Brasileiro de Ciência Aberta, Virtual 2022
+
+- Beatriz Milz, maio de 2022
+
+- Saiba mais em: <https://mathpol.github.io/bost/>
+
+
+## Links citados na atividade:
+
+- Material do curso de Relatórios oferecido no curso de verão do IME USP: <https://beatrizmilz.github.io/2022-curso-de-verao-ime-usp-relatorios/slides/>
+
+- Livro R for Data Science: <https://r4ds.had.co.nz/index.html>
+
+- Arquivos CSL - formatar referências:  <https://github.com/citation-style-language/styles>
+
+- Post com mapas: <https://beatrizmilz.com/blog/2020-07-27-criando-mapas-com-os-pacotes-tidyverse-e-geobr/>
+
+- Anotações do SICSS 2021: <https://github.com/beatrizmilz/2021-SICSS/tree/master/notes>
+
+- Post sobre erros comuns: <https://beatrizmilz.com/blog/2021-03-29-desvendando-erros/>
+
+- Evento: Seminário de Estatística com R: <http://ser.uff.br/programacao/>
+
+
+## Outras referências interessantes:
+
+Em Português:
+
+-   [Relatórios reprodutíveis com R - Curso de Verão IME-USP 2022](https://beatrizmilz.github.io/2022-curso-de-verao-ime-usp-relatorios/slides/#1)
+
+-   [Escrevendo manuscritos acadêmicos usando R Markdown](https://www.youtube.com/watch?v=Cxrc87AH2WM&list=PL9-E3cL2KgKmhrk9rba786DTMvnPh9fJD&index=1)
+
+-   [Ciência de Dados em R - Capítulo 9 Relatórios](https://livro.curso-r.com/9-relatorios.html)
+
+Em Inglês:
+
+-   [Tom Mock \| A Gentle Introduction to Tidy Statistics in R \| RStudio (2019)](https://youtu.be/wfMAaXWHGog)
+
+-   [Tom Mock \| R Markdown Advanced Tips to Become a Better Data Scientist \| RStudio](https://youtu.be/WkF7nqEYF1E)
+
+-   [Introduction to bioinformatics - Chapter 8 Reproducible research - Laurent Gatto](https://uclouvain-cbio.github.io/WSBIM1207/sec-rr.html)
